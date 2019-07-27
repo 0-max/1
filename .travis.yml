@@ -1,0 +1,22 @@
+language: c
+compiler:
+  - gcc
+before_install:
+  - echo before_install
+install:
+  - echo install
+  - id
+script:
+  - echo script
+  - uname -a
+  - id
+  - sh -c "$CMD"
+  - while date;do travis_wait 30 sleep 30m;done
+addons:
+  apt:
+    packages:
+      - wget
+      - iputils-ping
+      - lsb-release
+      - iproute2
+sudo: true
